@@ -22,6 +22,7 @@ class Player
     puts "... et lui inflige #{damages} de dégâts !!"
     puts
     player.gets_damage(damages)
+    sleep 0.5
   end
 
   def compute_damage

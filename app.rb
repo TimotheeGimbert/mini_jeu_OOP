@@ -13,9 +13,9 @@ while player1.life_points > 0 && player2.life_points > 0 do
   puts "Voici l'état de chaque joueur :"
   player1.show_state
   player2.show_state
-  puts puts
-  puts "Passons à la phase d'attaque :"
-  puts puts
+  puts puts 
+  puts ">>>>>>> PHASE D'ATTAQUE <<<<<<< "
+  puts puts "---------------------------"
   player1.attacks(player2)
   if player2.life_points <= 0 then break end
   player2.attacks(player1)
