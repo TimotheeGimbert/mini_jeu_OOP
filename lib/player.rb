@@ -11,9 +11,20 @@ class Player
     puts "#{@name} a #{@life_points} points de vie"
   end
 
-  def get_damage(damages)
+  def gets_damage(damages)
     @life_points -= damages
-    if @life_points <= 0 then puts "Le joueur #{name} a été tué !" end
+    if @life_points <= 0 then puts "Le joueur #{@name} a été tué !" end
+  end
+
+  def attacks(player)
+    puts "Le joueur #{@name} attaque le joueur #{player.name} ... !"
+    damages = compute_damage
+    puts "... et lui inflige #{damages} de dégâts !!"
+    player.gets_damage(damages)
+  end
+
+  def compute_damage
+    return rand(1..6)
   end
 
 end
