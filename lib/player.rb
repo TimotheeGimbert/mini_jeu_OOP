@@ -20,6 +20,7 @@ class Player
     puts "Le joueur #{@name} attaque le joueur #{player.name} ... !"
     damages = compute_damage
     puts "... et lui inflige #{damages} de dégâts !!"
+    puts
     player.gets_damage(damages)
   end
 
