@@ -11,11 +11,13 @@ class Player
   end
 
   def gets_damage(damages)
+  # Player loses life points
     @life_points -= damages
     if @life_points <= 0 then puts "Le joueur #{@name} a été tué !".red.on_white end
   end
 
   def attacks(player)
+  # Attack of an enemy on the player
     damages = compute_damage
     puts "#{@name} attaque #{player.name} ... et inflige #{damages} de dégâts !".red
     player.gets_damage(damages)
@@ -23,17 +25,18 @@ class Player
   end
 
   def compute_damage
+  # Defines the random damage coef
     return rand(1..6)
   end
 
 end
 
-  
+# HumanPlayer class herits from Player, as it has special faculties
 class HumanPlayer < Player
   attr_accessor :weapon_level
 
   def initialize(name)
-    super(name)
+    super(name) # get initialize method from Player
     @life_points = 100
     @weapon_level = 1
   end
@@ -45,10 +48,12 @@ class HumanPlayer < Player
   end
 
   def compute_damage
+  # Random power coef based on weapon_level
     rand(1..6) * @weapon_level
   end
 
   def search_weapon
+  # Looks for weapons around and compare to current player's weapon
     level = rand(1..6)
     if level > @weapon_level
       @weapon_level = level
@@ -59,6 +64,7 @@ class HumanPlayer < Player
   end
 
   def search_health_pack
+  # Searches for health based on random int
     h = rand(1..6)
     if h == 1
       puts "Tu n'as rien trouvé"

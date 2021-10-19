@@ -4,30 +4,34 @@ class Game
 
   def initialize(hero_name)
     @human_player = HumanPlayer.new(hero_name)
-    @players_left = 10
+    @players_left = 10 # numbers of zombies to kill
     @enemies_in_sight = Array.new
     for n in 1..4 do
-      player = Player.new('Zombie_' + n.to_s)
+      player = Player.new('Zombie_' + n.to_s) # 4 zombies can be in sight
       @enemies_in_sight << player
     end
   end
 
   def kill_player(player_name)
+  # Deletes a dead zombie from the game
     @enemies_in_sight.delete(player_name)
     @players_left -= 1
   end
 
   def is_ongoing?
+  # Cehcks if there are zombies left and if player is still alive
     @human_player.life_points > 0 && @players_left > 0 ? true : false
   end
 
   def show_gamers
+  # Show Player's stats and zombies left in game
     @human_player.show_state
     puts
     puts ">>> Il rEsTe #{@players_left} eNnemiEs sUr lE tErrAin !".red
   end
 
   def menu
+  # Display the menu of actions
     puts puts
     puts ">>> QuElLe aCtiOn déSireS-tU eFfEctUer #{@human_player.name} ?".green
     puts
@@ -47,6 +51,7 @@ class Game
   end
 
   def menu_choice(choice)
+  # Runs the sequence of the game based on player's choice
     puts puts
     case choice
       when 'a' then @human_player.search_weapon
@@ -62,6 +67,7 @@ class Game
   end
 
   def enemies_attack
+  # Zombies' hord attack the player
     @enemies_in_sight.each do |e| 
       e.attacks(@human_player)
       sleep 0.1
@@ -70,6 +76,7 @@ class Game
   end
 
   def add_players_in_sight
+  # Describes the ennemies situation and randomly adds zombies in sight
     if @enemies_in_sight.length == @players_left
       puts "AlL PlaYErS arE iN sIgHt !".green
     else
@@ -101,6 +108,7 @@ class Game
   end
 
   def end
+  # Sadly the end of the game is describe here
     puts puts puts
     puts ">>> eNd oF thE GaMe ! <<< ".green
     puts puts puts
