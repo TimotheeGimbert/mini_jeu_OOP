@@ -26,14 +26,21 @@ class Game
 
   def menu
     puts puts
-    puts "QuElLe aCtiOn déSireS-tU eFfEctUer #{@human_player.name} ?"
-    puts '------------------------------------'
-    puts 'a - CheRcHer uNe mEilLeUre aRme aUx AlenToURs'
-    puts "s - PaRtiR eN qUêtE d'UnE trOuSsE De sOiN"
+    puts ">>> QuElLe aCtiOn déSireS-tU eFfEctUer #{@human_player.name} ?"
     puts
+    puts '-------------------------------------------------------------'
+    puts "                | RENFORCER TES CAPACITES |"
+    puts '-------------------------------------------------------------'
+    puts '       |a| CheRcHer uNe mEilLeUre aRme aUx AlenToURs'
+    puts "       |s| PaRtiR eN qUêtE d'UnE trOuSsE De sOiN"
+    puts
+    puts '-------------------------------------------------------------'
+    puts "                   | DEBOITER DU ZOMBI |"
+    puts '-------------------------------------------------------------'
     for i in 0..@enemies.length-1 do
-      if @enemies[i].life_points > 0 then puts "#{i+1} - AtTaQueR #{@enemies[i].name} qUi eSt eN vuE aVeC #{@enemies[i].life_points} pOintS dE viE !" end
+      if @enemies[i].life_points > 0 then puts " |#{i+1}| AtTaQueR #{@enemies[i].name} qUi eSt eN vuE aVeC #{@enemies[i].life_points} pOintS dE viE !" end
     end
+    puts '-------------------------------------------------------------'
     puts
   end
 

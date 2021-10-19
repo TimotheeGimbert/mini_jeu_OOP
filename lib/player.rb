@@ -40,7 +40,9 @@ class HumanPlayer < Player
   end
 
   def show_state
+    puts '    ///////////////////////////////////////////////////////////////////////////////'
     puts ">>> #{@name}, tU aS aCtuElLemEnt #{@life_points} pOiNts dE Vie eT uNe ArMe dE NiVEau #{@weapon_level} <<<"
+    puts '    ///////////////////////////////////////////////////////////////////////////////'
   end
 
   def compute_damage
