@@ -12,15 +12,14 @@ class Player
 
   def gets_damage(damages)
     @life_points -= damages
-    if @life_points <= 0 then puts "Le joueur #{@name} a été tué !" end
+    if @life_points <= 0 then puts "Le joueur #{@name} a été tué !".red.on_white end
   end
 
   def attacks(player)
     damages = compute_damage
-    puts "#{@name} attaque #{player.name} ... et inflige #{damages} de dégâts !"
-    puts puts
+    puts "#{@name} attaque #{player.name} ... et inflige #{damages} de dégâts !".red
     player.gets_damage(damages)
-    sleep 0.25
+    sleep 0.15
   end
 
   def compute_damage
@@ -40,9 +39,9 @@ class HumanPlayer < Player
   end
 
   def show_state
-    puts '    ///////////////////////////////////////////////////////////////////////////////'
-    puts ">>> #{@name}, tU aS aCtuElLemEnt #{@life_points} pOiNts dE Vie eT uNe ArMe dE NiVEau #{@weapon_level} <<<"
-    puts '    ///////////////////////////////////////////////////////////////////////////////'
+    puts '____________________________________________________________________________________'.blue
+    puts
+    puts ">>> ".blue + "#{@name}".white + ", tU aS aCtuElLemEnt ".blue + "#{@life_points} pOiNts dE Vie".white + " eT uNe ".blue + "ArMe dE NiVEau #{@weapon_level} ".white + "<<<".blue
   end
 
   def compute_damage
@@ -53,9 +52,9 @@ class HumanPlayer < Player
     level = rand(1..6)
     if level > @weapon_level
       @weapon_level = level
-      puts "--> Excellent tu as trouvé une arme plus puissante de niveau #{level} !"
+      puts "--> Excellent tu as trouvé une arme plus puissante de niveau #{level} !".green
     else 
-      puts "--> Arf l'arme que tu as trouvé de niveau #{level} est bidon par rapport à la tienne niveau #{@human_player.weapon_level} ... too bad !"
+      puts "--> Arf l'arme que tu as trouvé de niveau #{level} est bidon par rapport à la tienne niveau #{@weapon_level} ... too bad !".red
     end
   end
 
