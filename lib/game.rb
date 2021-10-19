@@ -23,7 +23,8 @@ class Game
 
   def show_gamers
     @human_player.show_state
-    puts "Il rEsTe #{@players_left} eNnemiEs sUr lE tErrAin !"
+    puts
+    puts ">>> Il rEsTe #{@players_left} eNnemiEs sUr lE tErrAin !".red
   end
 
   def menu
@@ -71,29 +72,30 @@ class Game
   def add_players_in_sight
     if @enemies_in_sight.length == @players_left
       puts "AlL PlaYErS arE iN sIgHt !".green
-    end
-    randint = rand(1..6)
-    if @enemies_in_sight.length <= 1
-      case randint
-      when 1
-        puts
-        puts "AuCUn eNneMi à L'hOriZon !".green
-      when 2..4
-        player = Player.new('Zombie_Résistant_Seul')
-        @enemies_in_sight << player
-        puts
-        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
-        puts "Un enNeMi aRrivE eN vUe !".red
-        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
-      when 5..6
-        for i in 1..2 do
-          player = Player.new('Zombie_Résistant_' + i.to_s)
+    else
+      randint = rand(1..6)
+      if @enemies_in_sight.length <= 1
+        case randint
+        when 1
+          puts
+          puts "AuCUn eNneMi à L'hOriZon !".green
+        when 2..4
+          player = Player.new('Zombie_Résistant_Seul')
           @enemies_in_sight << player
+          puts
+          puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
+          puts "Un enNeMi aRrivE eN vUe !".red
+          puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
+        when 5..6
+          for i in 1..2 do
+            player = Player.new('Zombie_Résistant_' + i.to_s)
+            @enemies_in_sight << player
+          end
+          puts
+          puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
+          puts "DeUx enNeMiS aRrivEnT eN vUe !".red
+          puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
         end
-        puts
-        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
-        puts "DeUx enNeMiS aRrivEnT eN vUe !".red
-        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!".red
       end
     end
   end

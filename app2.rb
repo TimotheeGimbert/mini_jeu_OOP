@@ -45,6 +45,8 @@ while player.life_points > 0 && (bot1.life_points > 0 || bot2.life_points > 0)
     else puts 'Dommage, ton choix était ératique ... tu passes ton tour !'
   end
   sleep 0.5
+  if bot1.life_points <= 0 then enemies.delete(bot1) end # Removes dead bots from array enemies
+  if bot2.life_points <= 0 then enemies.delete(bot2) end
   puts '>>> REVENGE OF THE BOTS'
   enemies.each {|e| 
     e.attacks(player)

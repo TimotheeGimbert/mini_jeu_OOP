@@ -38,10 +38,10 @@ def perform
     game.menu_choice(choice)
     puts
     if game.players_left == 0 then break end
-    game.human_player.show_state
+    game.show_gamers
+    game.add_players_in_sight
     counter_attack_msg
     game.enemies_attack
-    if game.players_left > 1 then game.add_players_in_sight end
   end
   
   game.end
