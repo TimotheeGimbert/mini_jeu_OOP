@@ -26,9 +26,9 @@ while game.is_ongoing? do
   puts
   if game.enemies.length == 0 then break end
   game.human_player.show_state
-  puts
-  puts 'PRèS pOuR lA RipOStE zOmBiE ??'
-  puts '(PRESS ENTER)'
+  puts puts
+  puts '-------> PRèS pOuR lA RipOStE zOmBiE ??'
+  puts puts 
   gets.chomp
   game.enemies_attack
 end

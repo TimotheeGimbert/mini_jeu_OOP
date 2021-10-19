@@ -39,6 +39,7 @@ class Game
 
   def menu_choice(choice)
     system('clear')
+    puts puts
     case choice
       when 'a' then @human_player.search_weapon
       when 's' then  @human_player.search_health_pack

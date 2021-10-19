@@ -16,12 +16,11 @@ class Player
   end
 
   def attacks(player)
-    puts "#{@name} attaque le joueur #{player.name} ... !"
     damages = compute_damage
-    puts "et lui inflige #{damages} de dégâts !!"
-    puts
+    puts "#{@name} attaque #{player.name} ... et inflige #{damages} de dégâts !"
+    puts puts
     player.gets_damage(damages)
-    sleep 0.5
+    sleep 0.25
   end
 
   def compute_damage
@@ -41,7 +40,7 @@ class HumanPlayer < Player
   end
 
   def show_state
-    puts ">>> #{@name} a #{@life_points} points de vie et une arme de niveau #{@weapon_level}"
+    puts ">>> #{@name}, tU aS aCtuElLemEnt #{@life_points} pOiNts dE Vie eT uNe ArMe dE NiVEau #{@weapon_level} <<<"
   end
 
   def compute_damage
@@ -50,12 +49,11 @@ class HumanPlayer < Player
 
   def search_weapon
     level = rand(1..6)
-    puts "Tu as trouvé une nouvelle arme de niveau #{level} !!!"
     if level > @weapon_level
       @weapon_level = level
-      puts ">>> Excellent elle est meilleure que la tienne, tu peux la garder !"
+      puts "--> Excellent tu as trouvé une arme plus puissante de niveau #{level} !"
     else 
-      puts "Arf elle est bidon cette arme ... dommage ..."
+      puts "--> Arf l'arme que tu as trouvé de niveau #{level} est bidon par rapport à la tienne niveau #{@human_player.weapon_level} ... too bad !"
     end
   end
 
