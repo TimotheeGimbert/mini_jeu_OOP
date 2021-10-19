@@ -1,4 +1,5 @@
-> This is a little zombie game in Ruby.
+This is a little zombie game in Ruby.
+
 ! There are 10 zombies to kill, only 4 in sight at the same time.
 ! You can look for better weapons
 ! You can search for health packs
