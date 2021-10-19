@@ -16,7 +16,7 @@ class Player
   end
 
   def attacks(player)
-    puts "Le joueur #{@name} attaque le joueur #{player.name} ... !"
+    puts "#{@name} attaque le joueur #{player.name} ... !"
     damages = compute_damage
     puts "et lui inflige #{damages} de dégâts !!"
     puts
@@ -53,7 +53,7 @@ class HumanPlayer < Player
     puts "Tu as trouvé une nouvelle arme de niveau #{level} !!!"
     if level > @weapon_level
       @weapon_level = level
-      puts "Excellent elle est meilleure que la tienne, tu peux la garder !"
+      puts ">>> Excellent elle est meilleure que la tienne, tu peux la garder !"
     else 
       puts "Arf elle est bidon cette arme ... dommage ..."
     end
