@@ -1,5 +1,11 @@
-Ruby programs can be found in the lib/ directory, and can be load with the command ruby
-For these programms to run correctly, do not forget to make a "bundle install" to automatically load the required gems.
-The testing programms associated with lib/ content, are located in the spec/ directory and can be load with the command rspec
+This is a little zombie game in Ruby.
+> There are 10 zombies to kill, only 4 in sight at the same time.
+> You can look for better weapons
+> You can search for health packs
+> Attack zombies of your choice with a weapon bonus
 
-The main program can be run with app.rb file located at the directory root.
+LAUNCH THE GAME BY RUNNING app3.rb
+
+Classes and methods are to be found in lib/ directory.
+A Gemfile assures all required gems are listed.
+
